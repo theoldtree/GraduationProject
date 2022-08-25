@@ -48,12 +48,12 @@ st.write(pd.DataFrame(
 
 st.subheader('전체 영상정보')
 st.write(pd.DataFrame(
-    strange_action_info,
+    video_info,
     columns=['날짜','영상파일경로']
 ))
 
 st.subheader('이상행동 영상 정보')
 st.write(pd.DataFrame(
-    video_info,
+    strange_action_info,
     columns=['시점','돈방번호','데시벨']
 ))
