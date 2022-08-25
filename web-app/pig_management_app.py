@@ -1,5 +1,6 @@
 import streamlit as st
 import mysql.connector
+import pandas as pd
 
 st.title('양돈관리')
 
@@ -19,8 +20,13 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("SELECT * from mytable;")
+pig_count = run_query("SELECT * from pig_count;")
+pig_movement = run_query("SELECT * from pig_movement;")
+sold_pig = run_query("SELECT * from sold_pig;")
+strange_action_info = run_query("SELECT * fromstrange_action_info;")
+video_info = run_query("SELECT * from video_info;")
 
 # Print results.
-for row in rows:
-    st.write(f"{row[0]} has a :{row[1]}:")
+st.write(pd.DataFrame({
+    pig_count
+}))
