@@ -42,11 +42,6 @@ function print_description(){
       print_list();
       ?>
     </ol>
-    <h2>
-      <?php
-      print_title();
-      ?>
-    </h2>
     <?php
       print_description();
     ?>
