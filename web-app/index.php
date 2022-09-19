@@ -24,6 +24,9 @@ function print_description(){
     echo "HELLO";
   }
 }
+$conn = mysqli_connect("localhost","root","tlqkf12!@");
+mysqli_select_db($conn,"pig_management");
+$result = mysqli_query($conn, "SELECT * FROM pig_count");
 ?>
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
@@ -44,6 +47,9 @@ function print_description(){
     </ol>
     <?php
       print_description();
+    ?>
+    <?php
+    echo var_dump($result);
     ?>
   </body>
 </html>

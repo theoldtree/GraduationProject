@@ -1,3 +1,8 @@
+<?php
+$conn = mysqli_connect("localhost","root","tlqkf12!@");
+mysqli_select_db($conn,"pig_management");
+$result = mysqli_query($conn, "SELECT * FROM pig_movement");
+?>
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
   <head>
@@ -7,7 +12,7 @@
   <body>
     <h2>돈방이관리</h2>
     <?php
-    var_duddmp($result);
+    echo var_dump($result);
     ?>
   </body>
 </html>
