@@ -1,0 +1,6 @@
+
+
+foreach($field_list as $field){
+  $row = mysqli_fetch_assoc($result);
+  echo $field." ".$row[$field]."<br>";
+}

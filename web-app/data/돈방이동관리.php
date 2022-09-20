@@ -11,8 +11,6 @@ $result = mysqli_query($conn, "SELECT * FROM pig_movement");
   </head>
   <body>
     <h2>돈방이관리</h2>
-    <?php
-    echo var_dump($result);
-    ?>
+  </h1>
   </body>
 </html>
