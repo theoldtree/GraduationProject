@@ -1,0 +1,15 @@
+-설치해야할 항목
+%cd /content/drive/MyDrive/download/ByteTrack_yolov5/yolov5
+!pip install -r requirements.txt
+!pip3 install pillow
+
+-모델 위치
+/Yolov5_DeepSort_Pytorch/weights/last_aihub_model.pt
+
+-deepsort 기반 카운터 실행
+%cd /Yolov5_DeepSort_Pytorch (실행 파일 있는 위치로 이동)
+!python3 track.py --source '비디오 위치' --save-vid --yolo-weights /Yolov5_DeepSort_Pytorch/weights/last_aihub_model.pt(모델 위치)
+
+-트래킹 안쓴 카운터 실행
+%cd /yolov5 (yolov5로 이동)
+!python detect.py --weights /Yolov5_DeepSort_Pytorch/weights/last_aihub_model.pt --img 460 --conf 0.5 --source '비디오 위치'
