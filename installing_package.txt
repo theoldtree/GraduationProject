@@ -1,5 +1,5 @@
 -설치해야할 항목
-%cd /content/drive/MyDrive/download/ByteTrack_yolov5/yolov5
+%cd /Yolov5_DeepSort_Pytorch/yolov5/requirements.txt
 !pip install -r requirements.txt
 !pip3 install pillow
 
