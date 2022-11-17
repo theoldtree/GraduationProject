@@ -13,13 +13,15 @@ def connect_result(client,userdata,flags,rc): #rc가 0이면 접속성공, 1이�
 
 def on_message(client,userdata,message):
     myval = message.payload.decode("utf-8")
-    datetime, value = message.split("/")
-
+    datetime, value = message.split(myval)
+    print("datetime : " + datetime)
+    print("value : " + value)
     print(myval)
 
 try:
     con = pymysql.connect(host='localhost',user='root',passwd='tlqkf12!@',db='pighouse')
     cur = con.cursor()
+    
     mqttClient = mqtt.Client()
     mqttClient.on_connect = connect_result
     mqttClient.on_message = on_message
