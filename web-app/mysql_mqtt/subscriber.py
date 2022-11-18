@@ -1,6 +1,7 @@
 # callback - 구독신청 후 broker와 접속이 완료됐을때
 # callback - broker가 보낸 메세지가 도착했을때
 import paho.mqtt.client as mqtt
+import pymysql
 
 #Client(subscriber)가 broker에 접속이 완료된 경우 호출
 def connect_result(client,userdata,flags,rc): #rc가 0이면 접속성공, 1이면 접속실패
@@ -12,9 +13,15 @@ def connect_result(client,userdata,flags,rc): #rc가 0이면 접속성공, 1이�
 
 def on_message(client,userdata,message):
     myval = message.payload.decode("utf-8")
+    datetime, value = message.split(myval)
+    print("datetime : " + datetime)
+    print("value : " + value)
     print(myval)
 
 try:
+    con = pymysql.connect(host='localhost',user='root',passwd='tlqkf12!@',db='pighouse')
+    cur = con.cursor()
+    
     mqttClient = mqtt.Client()
     mqttClient.on_connect = connect_result
     mqttClient.on_message = on_message
@@ -26,4 +33,3 @@ except KeyboardInterrupt:
     pass
 finally:
     pass
-
