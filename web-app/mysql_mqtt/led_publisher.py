@@ -32,11 +32,7 @@ def red_button_released():
 def green_button_released():
     led_green.off()
 
-
-
-if __name__ == "__main__":
-    while True:
-        button_red.when_pressed = red_button_pressed
-        button_green.when_released = red_button_released
-        button_green.when_pressed = green_button_pressed
-        button_green.when_released = green_button_released
+button_red.when_pressed = red_button_pressed
+button_green.when_released = red_button_released
+button_green.when_pressed = green_button_pressed
+button_green.when_released = green_button_released
