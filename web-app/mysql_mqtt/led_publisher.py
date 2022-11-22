@@ -15,7 +15,7 @@ def red_button_pressed():
     led_red.on()
     stringdate = datetime.now()
     stringdate = stringdate.strftime("%Y-%d-%m %H:%M:%S")
-    message = 
+    message = str(state) + "/" + stringdate
     publisher.single("iot/led",message,hostname='localhost')
 
 def green_button_pressed():

@@ -21,7 +21,6 @@ def on_message(client,userdata,message):
 try:
     con = pymysql.connect(host='localhost',user='root',passwd='tlqkf12!@',db='pighouse')
     cur = con.cursor()
-
     mqttClient = mqtt.Client()
     mqttClient.on_connect = connect_result
     mqttClient.on_message = on_message
