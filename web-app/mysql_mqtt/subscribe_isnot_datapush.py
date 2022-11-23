@@ -8,18 +8,20 @@ import datetime
 def connect_result(client,userdata,flags,rc): #rc가 0이면 접속성공, 1이면 접속실패
     print("connect...", rc)
     if rc == 0 :
-        client.subscribe("iot/#") # iot/로 시작하는 topic은 모두 구독
+        client.subscribe("iot/led") # iot/로 시작하는 topic은 모두 구독
     else :
         print("연결실패")
 
 def on_message(client,userdata,message):
+    print(client)
     myval = message.payload.decode("utf-8")
     time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(time,myval)
+    (room,isnot) = myval.split(",")
+    print(time,room,isnot)
     con = pymysql.connect(host='localhost',user='root',passwd='tlqkf12!@',db='pighouse')
     cur = con.cursor()
-    sql = "INSERT INTO exam (datetime,decibel) values (%s,%s)"
-    cur.execute(sql,(time,myval))
+    sql = "INSERT INTO decibel (time,room,isnot) values (%s,%s,%s)"
+    cur.execute(sql,(time,room,isnot))
     con.commit()
     con.close()
 

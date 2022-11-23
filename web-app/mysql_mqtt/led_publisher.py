@@ -8,22 +8,18 @@ led_red = LED(22)
 button_green = Button(24)
 led_green = LED(25)
 state = 0
-
+room = 3
 
 def red_button_pressed():
     state = 0
     led_red.on()
-    stringdate = datetime.now()
-    stringdate = stringdate.strftime("%Y-%d-%m %H:%M:%S")
-    message = str(state) + "/" + stringdate
+    message = str(room) + "," + str(state)
     publisher.single("iot/led",message,hostname='localhost')
 
 def green_button_pressed():
     state = 1
     led_green.on()
-    stringdate = datetime.now()
-    stringdate = stringdate.strftime("%Y-%d-%m %H:%M:%S")
-    message = str(state) + "/" + stringdate
+    message = str(room) + "," + str(state)
     publisher.single("iot/led",message,hostname='localhost')
 
 def red_button_released():
