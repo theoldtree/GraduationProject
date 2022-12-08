@@ -33,7 +33,7 @@ try:
     mqttClient.on_message = on_message
 
     # broker에 접속하기
-    mqttClient.connect("localhost",1883,60)
+    mqttClient.connect("192.168.226.181",1883,60)
     mqttClient.loop_forever()
 except KeyboardInterrupt:
     pass
